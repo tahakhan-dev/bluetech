@@ -1,0 +1,154 @@
+version : '3'
+services:
+    lb:
+        image: haproxy:2.2
+        restart: always
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./haproxy:/usr/local/etc/haproxy
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        container_name: Haproxy
+    nodeapp1:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=1111
+        container_name: Nodeserver1
+    nodeapp2:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=2222
+        container_name: Nodeserver2
+    nodeapp3:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=3333
+        container_name: Nodeserver3
+    nodeapp4:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=4444
+        container_name: Nodeserver4
+    nodeapp5:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=5555
+        container_name: Nodeserver5
+    nodeapp6:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=6666
+        container_name: Nodeserver6
+    nodeapp7:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=7777
+        container_name: Nodeserver7
+    nodeapp8:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=8888
+        container_name: Nodeserver8
+    nodeapp9:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=9999
+        container_name: Nodeserver9
+    nodeapp10:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=1010
+        container_name: Nodeserver10
+    nodeapp11:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=1011
+        container_name: Nodeserver11
+    nodeapp12:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=1212
+        container_name: Nodeserver12
+    nodeapp13:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=1313
+        container_name: Nodeserver13
+    nodeapp14:
+        image: giveesserver
+        restart: always
+        deploy:
+            resources:
+                limits:
+                    memory: 500M
+        environment:
+            - PORT=1414
+        container_name: Nodeserver14

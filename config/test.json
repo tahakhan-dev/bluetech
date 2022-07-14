@@ -1,0 +1,4 @@
+{
+    "jwtprivatekey" : "12345",
+    "DB" : "mongodb://localhost/Divis_test"
+}

@@ -1,0 +1,42 @@
+{
+    "DB": "mongodb://localhost/Divis",
+    // "origin": "https://givees.herokuapp.com",
+    // "origin": "http://givees-staging.herokuapp.com",
+    // "origin": "http://localhost:3000",
+    "origin": "https://webapp.givees.net",
+    "Email_env": {
+        "service": "gmail",
+        "email": "giveesapp@gmail.com",
+        "password": "jraowrqtnocdngpe"
+    },
+    "dbConfig":{
+        "host": "34.93.174.118",
+        "USER": "myuser",
+        "PASSWORD": "mypass",
+        "DB": "givees_stage"
+        
+        // "host": "localhost",
+        // "USER": "root",
+        // "PASSWORD": "taha155",
+        // "DB": "givees_stage"
+    },
+    "cloudinaryConfig": {
+        // "cloud_name": "dpc1ztgte",
+        // "api_key": "259772526299174",
+        // "api_secret": "0eYRtPEsTqHm2dVr8VhhZHzbRLw"
+
+        "cloud_name": "givees1",
+        "api_key": "686285693689455",
+        "api_secret": "pjUbkSuS0KOOUpP1LMTzzwzzfQk"
+    },
+    "twilio" : {
+        "Account_SID" : "ACa6a8be4f579169faa23d04c5803892ee",
+        "Account_TOKEN" : "e96202c84d9d2f348e34dcb6ecf85008",
+        "Number" : "+16476993211",
+        "serviceId" : "VAcb7bb8e2dae71706a5ddc85f788070ee"
+    },
+    "stripe": {
+        "secrect": "sk_test_6igcQIhxkTVN9Zi6EfZs6fdU",
+        "publish": "pk_test_6EN9UNtqm3jiZOCogXMtb9RL"
+    }
+}

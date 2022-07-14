@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../layouts/head'); %>
+    <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css"
+      href=https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+    <style>
+      .list-group {
+        border-color: #d0d5dc !important;
+      }
+
+      .list-group .list-group-item {
+        border-color: #d0d5dc !important;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 500 !important;
+      }
+
+      a.account-card {
+        text-decoration: none;
+        color: unset;
+      }
+
+      a.account-card i.fa {
+        font-size: 42px;
+        width: 45px;
+      }
+
+      a.account-card .card {
+        background: #f9fafb;
+        border: 1px solid #d0d5dc;
+      }
+
+      a.account-card .card:hover {
+        background: #ffffff;
+      }
+
+      a.account-card .card:active {
+        background: #f0f2f5;
+      }
+
+      .bg-yellow {
+        background: #f5d847;
+        color: #222c3a;
+      }
+
+      .list-group-item-action {
+        background: #f9fafb;
+      }
+
+      .list-group-item-action .fa {
+        width: 22px;
+      }
+
+      .list-group-item-action .fa.fa-angle-right {
+        font-size: 20px;
+        position: absolute;
+        right: 5px;
+        top: 14px;
+      }
+
+      .coupon {
+        background: #f9fafb;
+        border: 2px dashed #d0d5dc !important;
+      }
+
+      .reward-status-box {
+        position: relative;
+        width: 100%;
+        color: #ffffff;
+        background: #1b8cb2;
+        border: 2px solid #38b7e1;
+        border-radius: 5px;
+      }
+
+      .reward-status-box .reward-status {
+        width: 60%;
+        background: #38b7e1;
+        padding: 15px;
+      }
+
+      .reward-status-box .current-status {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: #ffffff;
+      }
+
+      .reward-status-box .current-status-2 {
+        position: absolute;
+        right: 15px;
+        top: 41px;
+        color: #ffffff;
+      }
+
+      .text-orange {
+        color: #ec9532 !important;
+      }
+
+      .text-carbon {
+        color: #222c3a !important;
+      }
+
+      .text-pebble {
+        color: #79879a !important;
+      }
+
+      .text-gray {
+        color: #a2abb9 !important;
+      }
+
+      .text-cloud {
+        color: #d0d5dc !important;
+      }
+
+      .text-blue {
+        color: #49aed0 !important;
+      }
+
+      .text-gray {
+        color: #a2abb9 !important;
+      }
+
+      .text-pale-sky {
+        color: #a2abb9 !important;
+      }
+
+      .bg-black {
+        background: #111822 !important;
+      }
+
+      .bg-snow {
+        background: #f9fafb !important;
+      }
+
+      .bg-fog {
+        background: #f0f2f5 !important;
+      }
+
+      .bb1-cloud {
+        border-bottom: 1px solid #d0d5dc;
+      }
+
+      .fs-14 {
+        font-size: 14px !important;
+      }
+
+      .fs-22 {
+        font-size: 22px !important;
+      }
+
+      .tanga-header .navbar-brand {
+        margin-bottom: 5px;
+      }
+
+      .tanga-header .nav-link {
+        color: #a2abb9;
+      }
+
+      .tanga-header .nav-link:hover {
+        color: #ffffff;
+      }
+
+      .tanga-header .nav-link:active {
+        color: #a2abb9;
+      }
+
+      .tanga-navbar {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+      }
+
+      .tanga-navbar:-webkit-scrollbar {
+        display: none;
+      }
+
+      .tanga-navbar .nav-link {
+        white-space: nowrap;
+        color: #79879a;
+      }
+
+      .tanga-navbar .nav-link:hover {
+        color: #354050;
+      }
+
+      .tanga-navbar .nav-link:active {
+        color: #79879a;
+      }
+
+      .btn-primary {
+        background: #c62931;
+        border-color: #c62931;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        background: #d94950;
+        border-color: #d94950;
+      }
+
+      .btn-secondary {
+        background: #ffffff !important;
+        color: #354050 !important;
+        border-color: #d0d5dc !important;
+        cursor: pointer;
+      }
+
+      .btn-secondary:hover {
+        color: #354050 !important;
+        background: #f9fafb !important;
+      }
+
+      .btn-secondary:active {
+        color: #79879a !important;
+        background: #f0f2f5 !important;
+      }
+
+      .btn-secondary:focus {
+        color: #79879a !important;
+        background: #f0f2f5 !important;
+        outline: 0 !important;
+      }
+
+      .mobile-nav {
+        position: fixed;
+        bottom: 0;
+        z-index: 50;
+        display: block;
+        width: 100%;
+        background: #111822;
+      }
+
+      .mobile-nav a {
+        text-decoration: none !important;
+        cursor: pointer;
+        color: #a2abb9;
+        font-size: 12px;
+        float: left;
+        width: 20%;
+        display: inline-block;
+        text-align: center;
+        margin: 0 !important;
+        padding: 8px 0px 5px 0px;
+      }
+
+      .mobile-nav a.active {
+        background: #222c3a;
+        color: #ffffff;
+      }
+
+      .mobile-nav a i {
+        font-size: 23px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 2px;
+      }
+
+      .fs-18 {
+        font-size: 18px !important;
+      }
+
+      .fs-22 {
+        font-size: 22px !important;
+      }
+
+      .bg-snow {
+        background: #f9fafb !important;
+      }
+
+      .card {
+        border-color: #d0d5dc !important;
+      }
+
+      .text-pebble {
+        color: #79879a !important;
+      }
+
+      .text-charcoal {
+        color: #354050 !important;
+      }
+
+      .bottom-drawer {
+        position: fixed;
+        bottom: 56px;
+        width: 100%;
+        border-top: 1px solid #d0d5dc;
+      }
+
+      .bg-white {
+        background: #ffffff !important;
+      }
+
+      .list-group {
+        border-color: #d0d5dc !important;
+      }
+
+      .list-group-item {
+        border-color: #d0d5dc !important;
+      }
+
+      .text-red {
+        color: #c62931 !important;
+      }
+
+      .text-green {
+        color: #00a362 !important;
+      }
+
+      .text-link-blue {
+        color: #3373cc !important;
+      }
+
+      .form-control {
+        background: #f9fafb;
+        border-color: #d0d5dc !important;
+      }
+
+      .bd-2-cloud {
+        border: 2px dashed #d0d5dc;
+      }
+
+      .b-1-green {
+        border: 2px solid #00a362 !important;
+      }
+
+      .br-8 {
+        border-radius: 5px;
+      }
+
+      .address-radio .address-label {
+        padding: 1rem;
+        margin-bottom: 0 !important;
+      }
+
+      .address-radio [type="radio"]:checked,
+      .address-radio [type="radio"]:not(:checked) {
+        position: absolute;
+        opacity: 0;
+      }
+
+      .address-radio [type="radio"]:checked+label,
+      .address-radio [type="radio"]:not(:checked)+label {
+        position: relative;
+        padding-left: 50px;
+        width: 100%;
+        cursor: pointer;
+        line-height: 20px;
+        display: inline-block;
+        color: #354050;
+      }
+
+      .address-radio [type="radio"]:checked+label:before,
+      .address-radio [type="radio"]:not(:checked)+label:before {
+        content: "";
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #d0d5dc;
+        border-radius: 50%;
+        background: #fff;
+      }
+
+      .address-radio [type="radio"]:checked+label:after,
+      .address-radio [type="radio"]:not(:checked)+label:after {
+        content: "";
+        width: 12px;
+        height: 12px;
+        background: #00a362;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        border-radius: 50%;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+      }
+
+      .address-radio [type="radio"]:not(:checked)+label:after {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      .address-radio [type="radio"]:checked+label:after {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+
+      .address-radio [type="radio"]:not(:checked)~label p {
+        display: none;
+      }
+
+      .address-radio [type="radio"]:checked~label p {
+        display: unset;
+      }
+    </style>
+</head>
+
+<body>
+  <div class="container mt-3 mt-md-5">
+    <h2 class="text-charcoal hidden-sm-down" style="padding-bottom: 2%">Your Transaction</h2>
+    <h5 class="text-charcoal hidden-md-up">Your Transaction</h5>
+    <div class="row">
+      <div class="col-12">
+        <div class="list-group mb-5">
+          <div class="list-group-item p-3 bg-snow text-center" style="position: relative">
+            <div class="row w-100 no-gutters">
+              <div class="col-6 col-md">
+                <h6 class="text-charcoal mb-0 w-100">Transaction Number</h6>
+                <a href="" class="text-pebble mb-0 w-100 mb-2 mb-md-0">(<%= transId %>)</a>
+              </div>
+              <div class="col-6 col-md">
+                <h6 class="text-charcoal mb-0 w-100">Date</h6>
+                <a href="" class="text-pebble mb-0 w-100 mb-2 mb-md-0">(<%= moment(transaction.createdDate).format("LL")
+                    %>)</a>
+              </div>
+              <div class="col-6 col-md">
+                <h6 class="text-charcoal mb-0 w-100">Total</h6>
+                <p class="text-pebble mb-0 w-100 mb-2 mb-md-0">(<%= transaction.total_amount %>)</p>
+              </div>
+              <!-- <div class="col-12 col-md-3">
+                  <a href="" class="btn btn-primary w-100">View Order</a>
+                </div> -->
+            </div>
+          </div>
+          <div class="list-group-item p-3 bg-white">
+            <div class="col-md-1 mr-1"></div>
+            <div class="row no-gutters col-md-12">
+              <div class="col-12 col-md-12 pl-5 pr-md-3" style="padding-left: 8% !important;">
+                <% for(var i=0; i<transaction.orders.length; i++) { 
+                  for(var j=0; j<transaction.orders[i].product_color_sku.length; j++) { %>
+                  <div class="row no-gutters mt-3">
+                    <div class="col-9 col-md-8 pr-0 pr-md-3">
+                      <h6 class="text-charcoal mb-2 mb-md-1">
+                        <%= transaction.orders[i].product_color_sku[j].to.quantity %> 
+                        <b> X </b>
+                        <a href="" class="text-charcoal">
+                          <%= transaction.orders[i].seller_product_id.product_name %>
+                        </a>
+                      </h6>
+                      <ul class="list-unstyled text-pebble mb-2 small">
+                        <li class=""><b>Color:</b>
+                          <%= transaction.orders[i].product_color.color %>
+                        </li>
+                        <li class=""><b>Size:</b>
+                          <%= transaction.orders[i].product_color_sku[j].sku.size %>
+                        </li>
+                        <li class=""><b>Price:</b>
+                          <%= transaction.orders[i].product_color_sku[j].to.price %>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-12 col-md-3 hidden-sm-down">     
+                        <a href="" class="btn btn-secondary w-100">Request a Return</a>
+                    </div>
+                  </div>
+                  <% } } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-3 hidden-md-up"></div>
+  <div class="mobile-nav hidden-md-up">
+    <a href="">
+      <i class="fa fa-home"></i>
+      Deals
+    </a>
+    <a class="" href="">
+      <i class="fa fa-th-large"></i>
+      Categories
+    </a>
+    <a href="">
+      <i class="fa fa-search"></i>
+      Search
+    </a>
+    <a href="" class="active">
+      <i class="fa fa-shopping-cart"></i>
+      Cart
+    </a>
+    <a class="" href="">
+      <i class="fa fa-user"></i>
+      Account
+    </a>
+  </div>
+
+  <footer style="
+    text-align: center;
+    height: 100vh;
+    bottom: 0;
+">
+    <%- include('../layouts/footer'); %>
+  </footer>
+</body>
+
+</html>
